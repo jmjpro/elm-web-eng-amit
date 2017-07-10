@@ -25,7 +25,7 @@ class App extends Component {
       <button name="add-location"
         onClick={() => this.props.addLocation({ name: 'China', region: 'Asia' })}
         >
-        Add Stuff
+        Add Name and Region
       </button>
 
       <table>
