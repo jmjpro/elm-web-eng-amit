@@ -30,7 +30,7 @@ class App extends Component {
 
       <table>
         <thead>
-          <tr><th>Name</th><th>Location</th></tr>
+          <tr><th>Name</th><th>Region</th></tr>
         </thead>
         <tbody>
           { this.buildLocationRows(this.props.locations) }
