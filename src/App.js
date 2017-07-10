@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  buildLocationListItems(locations) {
+  buildLocationRow(locations) {
   };
 
 
@@ -23,8 +23,12 @@ class App extends Component {
       </button>
 
       <table>
-        <tr><th>Name</th><th>Location</th></tr>
-        { this.buildLocationListItems(this.props.locations) }
+        <thead>
+          <tr><th>Name</th><th>Location</th></tr>
+        </thead>
+        <tbody>
+          { this.buildLocationRows(this.props.locations) }
+        </tbody>
       </table>
       </div>
     );
