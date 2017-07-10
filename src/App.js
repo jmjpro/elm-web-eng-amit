@@ -3,10 +3,16 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  buildLocationRow(locations) {
+  // TODO change this implementation from static to dynamic
+  buildLocationRows(locations) {
+    return [
+      <tr><td>name1</td><td>region1</td></tr>,
+      <tr><td>name2</td><td>region2</td></tr>
+      ]
   };
 
 
+  // TODO change the implementation of the add-location button to retrieve the name and region via form input elements
   render() {
     console.log(this.props.locations);
     return (
@@ -16,7 +22,7 @@ class App extends Component {
           <h2>Welcome to Elminda</h2>
         </div>
 
-      <button
+      <button name="add-location"
         onClick={() => this.props.addLocation({ name: 'China', region: 'Asia' })}
         >
         Add Stuff
