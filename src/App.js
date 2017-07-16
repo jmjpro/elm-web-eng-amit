@@ -14,7 +14,6 @@ class App extends Component {
 
   // TODO change the implementation of the add_location button to retrieve the name and region via form input elements
   render() {
-    console.log(this.props.locations);
     return (
       <div className="App">
         <div className="App-header">
@@ -23,7 +22,7 @@ class App extends Component {
         </div>
 
       <button id="add_location"
-        onClick={() => this.props.addLocation({ name: 'China', region: 'Asia' })}
+        onClick={() => this.props.addLocation({ name: 'name1', region: 'region1' })}
         >
         Add Name and Region
       </button>
