@@ -28,21 +28,24 @@ it('adds name and region to table', () => {
   const store = {
     locations: {
       'loc1': {
-        name: 'China',
-        region: 'Asia'
+        name: 'name1',
+        region: 'region1'
       }
     }
   }
-  console.log(actions);
-  console.log(store);
   const rendered = mount(<App
     {...actions}
     {...store}
-  />);
-  rendered.find('input[name="name"]').simulate('change', { target: { value: expectedName } });
-  rendered.find('input[name="region"]').simulate('change', { target: { value: expectedRegion } });
+/>);
+
+  rendered.find('input[name="name"]').node.value = expectedName;
+  rendered.find('input[name="region"]').node.value = expectedRegion;
   rendered.find('#add_location').simulate('click');
-  const lastRowCells = rendered.find('tr').last().find('td');
-  expect(lastRowCells.first().text()).toEqual(expectedName);
-  expect(lastRowCells.last().text()).toEqual(expectedRegion);
+
+  console.log(rendered.find('tr').last().find('td').node);
+  setTimeout(() => {
+    const lastRowCells = rendered.find('tr').last().find('td');
+    expect(lastRowCells.first().text()).toEqual(expectedName);
+    expect(lastRowCells.last().text()).toEqual(expectedRegion);
+  }, 1000);
 });

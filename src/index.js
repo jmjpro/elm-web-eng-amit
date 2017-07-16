@@ -20,8 +20,8 @@ const fb = firebase
 
 // Added some "action" functions
 // These will update our firebase database
-const addLocation = data => { console.log(data); fb.child('locations').push(data, response => response); }
-const updateLocation = (id, data) => { console.log(data); fb.child(`locations/${id}`).update(data, response => response); }
+const addLocation = data => { fb.child('locations').push(data, response => response); }
+const updateLocation = (id, data) => { fb.child(`locations/${id}`).update(data, response => response); }
 const actions = {  
   addLocation,
   updateLocation,
