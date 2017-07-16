@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import randomstring from 'randomstring';
+import * as firebase from 'firebase';
+import actions from './index';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -15,7 +17,6 @@ it('displays input fields for name and region', () => {
 });
 
 it('adds name and region to table', () => {
-  const rendered = shallow(<App />);
   const expectedName = randomstring.generate({
     length: 8,
     charset: 'alphabetic'
@@ -24,9 +25,24 @@ it('adds name and region to table', () => {
     length: 8,
     charset: 'alphabetic'
   })
-  rendered.find('input[name="name"]').simulate('input', { target: { value: expectedName } });
-  rendered.find('input[name="region"]').simulate('input', { target: { value: expectedRegion } });
-  rendered.find('input[name="button"]').simulate('click');
-  expect(rendered.find('tr:last-child td:first-child').text).toEqual(expectedName);
-  expect(rendered.find('tr:last-child td:last-child').text).toEqual(expectedRegion);
+  const store = {
+    locations: {
+      'loc1': {
+        name: 'China',
+        region: 'Asia'
+      }
+    }
+  }
+  console.log(actions);
+  console.log(store);
+  const rendered = mount(<App
+    {...actions}
+    {...store}
+  />);
+  rendered.find('input[name="name"]').simulate('change', { target: { value: expectedName } });
+  rendered.find('input[name="region"]').simulate('change', { target: { value: expectedRegion } });
+  rendered.find('#add_location').simulate('click');
+  const lastRowCells = rendered.find('tr').last().find('td');
+  expect(lastRowCells.first().text()).toEqual(expectedName);
+  expect(lastRowCells.last().text()).toEqual(expectedRegion);
 });
