@@ -9,6 +9,6 @@ Instructions:
 6. Commit your work to your forked respository
 7. Create a pull request to merge your code back to the branch with your name at https://github.com/jmjpro and assign the pull request to jmjpro@gmail.com.
 
-You will have a hour to complete the test.
+You will have one hour to complete the test.
 
 Contact Yehoshua Jacobson at x165 in Room 31C with any questions.
