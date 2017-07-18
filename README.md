@@ -1,4 +1,4 @@
-Elminda developed this repository as skills indicator for candidates for Front End Web Engineers. The code was scaffolded with react-create-app https://github.com/facebookincubator/create-react-app. Firebase is used as the data store via the firebase SDK https://github.com/firebase/firebase-js-sdk.
+Elminda developed this repository as a skills indicator for candidates for Front End Web Engineers. The code was scaffolded with react-create-app https://github.com/facebookincubator/create-react-app. Firebase is used as the data store via the firebase SDK https://github.com/firebase/firebase-js-sdk.
 
 Instructions:
 1. Fork the repository https://github.com/jmjpro to your github account (create an account if you don't have one).
